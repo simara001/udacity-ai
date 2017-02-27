@@ -34,8 +34,8 @@ I calculated the new 2 constraints and include them on unit_list:
 
 ```python
 # Getting diagonal values (we can hardcode it also i.e. ['A1','B2','C3'...]
-diagonal_left = [[rows[i]+cols[i] for i in range(len(rows))]]
-diagonal_right = [[rows[i]+cols[len(rows)-1-i] for i in range(len(rows))]]
+diagonal_left = [[r+c for r,c in zip(rows,cols)]]
+diagonal_right = [[r+c for r,c in zip(rows,cols[::-1])]]
 unit_list =  column_units + row_units + square_units + diagonal_left + diagonal_right
 ```
 
